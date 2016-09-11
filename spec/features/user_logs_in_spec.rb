@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User sees sign on" do
-  scenario "They successfully log in" do
+  scenario "They successfully log in and then back out" do
     visit '/'
     expect(page).to have_content("Log In or Sign Up")
 
@@ -21,6 +21,9 @@ RSpec.feature "User sees sign on" do
 
     within("nav") do
       expect(page).to have_button("Log Out")
+      click_button("Log Out")
     end
+
+    expect(page).to have_current_path('/')
   end
 end

@@ -14,8 +14,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    session.delete(:user_id)
+    flash[:notice] = "Goodbye!"
+    redirect_to root_path
+  end
+
   private
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

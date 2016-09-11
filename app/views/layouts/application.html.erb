@@ -11,9 +11,9 @@
 <body>
   <nav>
     <% if current_user %>
-      <%= button_to "Log Out"%>
+      <%= button_to "Log Out", user_path(current_user), method: :delete %>
     <% else %>
-      <%= button_to "Log In", new_user_path, method: :get%>
+      <%= button_to "Log In", new_user_path, method: :get %>
     <% end %>
   </nav>
 
