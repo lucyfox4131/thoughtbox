@@ -6,4 +6,5 @@ $(document).ready(function(){
   showReadLinks();
   showUnreadLinks();
   showAll();
+  searchFilter();
 });
