@@ -15,8 +15,7 @@ function filterByStatus(filterStatus){
     var status = $(this).find(".status").text();
     if (status === filterStatus){
       $(link).show();
-    }
-    else {
+    } else {
       $(link).hide();
     }
   });

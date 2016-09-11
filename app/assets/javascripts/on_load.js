@@ -5,4 +5,5 @@ $(document).ready(function(){
   unreadLink();
   showReadLinks();
   showUnreadLinks();
+  showAll();
 });
