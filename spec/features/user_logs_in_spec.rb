@@ -39,10 +39,14 @@ RSpec.feature "User sees sign on" do
     end
 
     within("#log-in") do
-      fill_in "Email", with: user.email
-      fill_in "Password", with: "Password"
       click_button "Log In"
     end
 
+    expect(page).to have_current_path(login_path)
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "Password"
+    click_button "Login"
+
+    expect(page).to have_current_path(links_path)
   end
 end
