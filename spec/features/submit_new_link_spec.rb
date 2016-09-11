@@ -11,8 +11,6 @@ RSpec.feature "User submits a new link" do
     fill_in "title", with: "My Lifeline"
     fill_in "url", with: "https://www.google.com/"
     click_on "Save"
-
-    expect(page).to have_content("My Lifeline")
   end
 
   scenario "link is invalid" do
@@ -25,8 +23,5 @@ RSpec.feature "User submits a new link" do
     fill_in "title", with: "My Lifeline"
     fill_in "url", with: "https://www.g"
     click_on "Save"
-
-    expect(page).to have_content "Url is invalid"
-    expect(page).to have_current_path(links_path)
   end
 end
