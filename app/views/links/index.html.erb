@@ -12,10 +12,22 @@
 </div>
 
 <div class="col-md-6 forms text-center">
-  <h1 class="body-header">Search Links</h1>
+  <h1 class="body-header">Search Links By Title</h1>
   <div class="idea-search form-inline">
-    <%= text_field :search, :filter, placeholder: "Search", class: "form-control" %>
+    <%= text_field :search, :filter, placeholder: "Title", class: "form-control" %>
     <button type="button" name="button-search" class="btn btn-success">Search</button>
+  </div>
+</div>
+
+<div class="col-md-12 buttons-row">
+  <div class="col-md-4">
+    <button type="button" name="read-links" class="btn btn-success">Read Links</button>
+  </div>
+  <div class="col-md-4">
+    <button type="button" name="unread-links" class="btn btn-success">Unread Links</button>
+  </div>
+  <div class="col-md-4">
+    <button type="button" name="alpha-sort" class="btn btn-success">Sort Alphabetically</button>
   </div>
 </div>
 

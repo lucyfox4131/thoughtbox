@@ -3,4 +3,6 @@ $(document).ready(function(){
   newLink();
   readLink();
   unreadLink();
+  showReadLinks();
+  showUnreadLinks();
 });
