@@ -1,12 +1,15 @@
-var _ = require('lodash');
-
 function alphaFilter(){
   $("button[name=alpha-sort]").on('click', function(){
     var allLinks = $(".link-row");
-    console.log(allLinks);
-    debugger;
+    var sorted = _.sortBy(allLinks, function(link){
+      return $(link).find(".title").text();
+    });
+    replaceWithSorted(sorted.reverse());
   });
-// get all links
-// filter alphabetically
-// remove existing links on table and replace with alphabetically sorted ones
+}
+
+function replaceWithSorted(links){
+  links.forEach(function(link){
+    $("#table-headings").after(link);
+  });
 }
