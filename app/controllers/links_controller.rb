@@ -7,9 +7,10 @@ class LinksController < ApplicationController
     link = Link.new(user: current_user, url: link_params["url"], title: link_params["title"])
     if link.save
       flash[:notice] = "Link Created"
-      redirect_to links_path
     else
+      flash[:error] = link.errors.full_messages.join(", ")
     end
+    redirect_to links_path
   end
 
   private
