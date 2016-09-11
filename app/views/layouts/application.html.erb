@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Thoughtbox</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Thoughtbox</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <nav>
+    <% if current_user %>
+      <%= button_to "Log Out"%>
+    <% else %>
+      <%= button_to "Log In", new_user_path, method: :get%>
+    <% end %>
+  </nav>
+
+  <% flash.each do |name, message| %>
+    <%= content_tag :div, raw(message), id: "flash_#{name}" %>
+  <% end %>
+
+  <%= yield %>
+</body>
 </html>
