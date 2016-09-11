@@ -18,6 +18,7 @@ RSpec.feature "User sees sign on" do
     click_button "Sign In"
 
     expect(page).to have_current_path(links_path)
+
     within("nav") do
       expect(page).to have_button("Log Out")
     end
