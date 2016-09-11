@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#show'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  resources :users, only: [:new, :create, :destroy]
+  resources :links, only: [:index]
+
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :links, only: [:index, :create, :update]
+    end
+  end
 end
