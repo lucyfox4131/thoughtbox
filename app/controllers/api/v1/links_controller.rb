@@ -1,0 +1,22 @@
+class Api::V1::LinksController < ApplicationController
+  respond_to :json
+
+  def index
+    links =  Link.where(user_id: current_user.id)
+    respond_with links
+  end
+
+  def create
+    link = Link.new(user: current_user, url: link_params["url"], title: link_params["title"])
+    if link.save
+      respond_with(link, status: 201, location: links_path)
+    else
+      respond_with({ errors: link.errors }, status: 422, location: links_path)
+    end
+  end
+
+  private
+  def link_params
+    params.require("link").permit(:url, :title)
+  end
+end
