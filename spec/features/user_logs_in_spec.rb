@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User sees sign on" do
-  scenario "successfully creates an account and logs out" do
+  scenario "successfully creates an account" do
     visit '/'
     expect(page).to have_content("Log In or Sign Up")
 
@@ -21,15 +21,9 @@ RSpec.feature "User sees sign on" do
 
     expect(page).to have_current_path(links_path)
 
-    within("nav") do
-      expect(page).to have_button("Log Out")
-      click_button("Log Out")
-    end
-
-    expect(page).to have_current_path('/')
   end
 
-  scenario "existing user can login" do
+  scenario "existing user can login and log out" do
     user = create(:user, email: "fakemail@mail.com", password: "Password")
 
     visit '/'
@@ -48,5 +42,12 @@ RSpec.feature "User sees sign on" do
     click_button "Login"
 
     expect(page).to have_current_path(links_path)
+
+    within("nav") do
+      expect(page).to have_button("Log Out")
+      click_button("Log Out")
+    end
+
+    expect(page).to have_current_path('/')
   end
 end

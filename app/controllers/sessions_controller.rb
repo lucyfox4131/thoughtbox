@@ -8,7 +8,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to links_path
     else
+      #write a test for sad path here
     end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    flash[:notice] = "Goodbye!"
+    redirect_to root_path
   end
 
 end
