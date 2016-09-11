@@ -1,12 +1,13 @@
 class LinksController < ApplicationController
   def index
-    @links = current_user.links
+    @links =  Link.where(user_id: current_user.id)
   end
 
   def create
     link = Link.new(user: current_user, url: link_params["url"], title: link_params["title"])
     if link.save
-      
+      flash[:notice] = "Link Created"
+      redirect_to links_path
     else
     end
   end

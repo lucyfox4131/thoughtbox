@@ -10,20 +10,10 @@ RSpec.feature "User submits a new link" do
 
     fill_in "Title", with: "My Lifeline"
     fill_in "Url", with: "https://www.google.com/"
-    #every link has a read or unread status
     click_on "Create New Link"
 
-    visit links_path
     expect(page).to have_content("My Lifeline")
   end
 end
 
-# The Link model should include:
-#
-# A valid URL location for the link
-# A title for the link
-# Additionally, all links have a read status that is either true or false. This column will default to false.
-#
 # Submitting an invalid link should result in an error message being displayed.
-#
-# Once a link has been submitted, loading the index page should display all of my links.

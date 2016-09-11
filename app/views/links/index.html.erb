@@ -1,10 +1,30 @@
 <div class="container">
-  <h1>Submit A Link</h1>
-  <%= form_for(Link.new) do |f| %>
+  <div class="submit-link">
+
+    <h1>Submit A Link</h1>
+    <%= form_for(Link.new) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :url %>
     <%= f.text_field :url %>
     <%= f.submit "Create New Link" %>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="links">
+    <table  class="table table-striped" id="links-table">
+      <tr id="table-headings">
+        <th>Title</th>
+        <th>Url</th>
+        <th>Read</th>
+      </tr>
+      <tbody>
+        <% @links.each do |link| %>
+        <td> <%= link.title %> </td>
+        <td> <%= link.url %> </td>
+        <td> <%= link.read %> </td>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
 </div>
