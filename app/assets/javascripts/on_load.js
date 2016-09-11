@@ -7,4 +7,7 @@ $(document).ready(function(){
   showUnreadLinks();
   showAll();
   searchFilter();
+  alphaFilter();
+  editTableRow();
+  saveEdits();
 });
