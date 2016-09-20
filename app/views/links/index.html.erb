@@ -6,7 +6,7 @@
     <div class="form-group">
     <%= text_field_tag :title, nil, placeholder: "Title", id: "title", class: "form-control"%>
     <%= text_field_tag :url, nil, placeholder: "URL", id: "url", class: "form-control" %>
-    <button type="button" name="save-new-link" id="save-btn" class="btn btn-success">Save</button>
+    <button type="button" name="save-new-link" id="save-btn" class="btn btn-custom">Save</button>
   </div>
   </form>
 </div>
@@ -15,22 +15,22 @@
   <h1 class="body-header">Search Links By Title</h1>
   <div class="idea-search form-inline">
     <%= text_field :search, :filter, placeholder: "Title", class: "form-control" %>
-    <button type="button" name="button-search" class="btn btn-success">Search</button>
+    <button type="button" name="button-search" class="btn btn-custom">Search</button>
   </div>
 </div>
 
 <div class="col-md-12 buttons-row">
   <div class="col-md-3">
-    <button type="button" name="read-links" class="btn btn-success">Read Links</button>
+    <button type="button" name="read-links" class="btn btn-custom">Read Links</button>
   </div>
   <div class="col-md-3">
-    <button type="button" name="unread-links" class="btn btn-success">Unread Links</button>
+    <button type="button" name="unread-links" class="btn btn-custom">Unread Links</button>
   </div>
   <div class="col-md-3">
-    <button type="button" name="alpha-sort" class="btn btn-success">Sort Alphabetically</button>
+    <button type="button" name="alpha-sort" class="btn btn-custom">Sort Alphabetically</button>
   </div>
   <div class="col-md-3">
-    <button type="button" name="all-links" class="btn btn-success">All Links</button>
+    <button type="button" name="all-links" class="btn btn-custom">All Links</button>
   </div>
 </div>
 
