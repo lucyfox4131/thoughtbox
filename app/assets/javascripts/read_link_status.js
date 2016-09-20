@@ -24,5 +24,5 @@ function markAsReadOrUnread(id, newValue){
 
 function updateLinkStatus(link){
   var newStatus = status(link.read);
-  $("#data" + link.id).find(".status").html(newStatus);
+  $("#data" + link.id).find(".status").html("<td class='status' id="+ newStatus +">"+ newStatus +"</td>");
 }

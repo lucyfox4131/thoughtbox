@@ -18,9 +18,7 @@ RSpec.feature "User sees sign on" do
 
       click_button "Create Account"
     end
-
     expect(page).to have_current_path(links_path)
-
   end
 
   scenario "existing user can login and log out" do
@@ -49,5 +47,26 @@ RSpec.feature "User sees sign on" do
     end
 
     expect(page).to have_current_path('/')
+  end
+
+  scenario "existing user types password wrong, sees error message" do
+    user = create(:user, email: "fakemail@mail.com", password: "Password")
+
+    visit '/'
+
+    within ("nav") do
+      click_button "Log In Or Sign Up"
+    end
+
+    within("#log-in") do
+      click_button "Log In"
+    end
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "Passw"
+    click_button "Login"
+
+    expect(page).to have_current_path(login_path)
+    expect(page).to have_content("Invalid login. Please try again.")
   end
 end
