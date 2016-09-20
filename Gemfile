@@ -41,11 +41,13 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'teaspoon'
   gem 'teaspoon-mocha'
 end
-
+group :test do
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
