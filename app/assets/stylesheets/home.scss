@@ -10,6 +10,25 @@
 }
 
 .logs {
-  color: white;
+
   font-size: 25px;
+}
+
+.home-text {
+  text-align: center;
+}
+
+.navbar-default .navbar-nav li .logs {
+  color: white;
+}
+
+.new-user-form {
+  text-align: center;
+  padding: 5px;
+}
+
+.btn-custom {
+  background-color: #FFA500;
+  color: white;
+  margin: 4px;
 }

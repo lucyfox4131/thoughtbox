@@ -1,9 +1,12 @@
+<div class="new-user-form">
+
 <h1>Log In</h1>
 
 <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Login" %>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  <%= f.submit "Login", class: "btn btn-custom" %>
 <% end %>
+</div>
