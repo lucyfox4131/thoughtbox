@@ -6,7 +6,7 @@ RSpec.feature "User sees sign on" do
     expect(page).to have_content("Log In or Sign Up")
 
     within ("nav") do
-      click_button "Log In Or Sign Up"
+      click_on "Log In Or Sign Up"
     end
 
     expect(page).to have_current_path(new_user_path)
@@ -27,7 +27,7 @@ RSpec.feature "User sees sign on" do
     visit '/'
 
     within ("nav") do
-      click_button "Log In Or Sign Up"
+      click_on "Log In Or Sign Up"
     end
 
     within("#log-in") do
@@ -42,8 +42,8 @@ RSpec.feature "User sees sign on" do
     expect(page).to have_current_path(links_path)
 
     within("nav") do
-      expect(page).to have_button("Log Out")
-      click_button("Log Out")
+      expect(page).to have_content("Log Out")
+      click_on("Log Out")
     end
 
     expect(page).to have_current_path('/')
@@ -55,7 +55,7 @@ RSpec.feature "User sees sign on" do
     visit '/'
 
     within ("nav") do
-      click_button "Log In Or Sign Up"
+      click_on "Log In Or Sign Up"
     end
 
     within("#log-in") do

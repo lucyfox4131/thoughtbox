@@ -9,26 +9,41 @@
 </head>
 
 <body>
-  <nav>
-    <h1>ThoughtBox</h1>
-    <% if current_user %>
-      <%= button_to "Log Out", logout_path, method: :delete %>
-    <% else %>
-      <%= button_to "Log In Or Sign Up", new_user_path, method: :get %>
-    <% end %>
+  <nav class="navbar navbar-default" id="nav-bar-custom">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <h1>ThoughtBox</h1>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+
+          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+          <% else %>
+          <li><a href="/users/new">Log In Or Sign Up</a></li>
+          <% end %>
+        </ul>
+
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
-  
-<div class="alert">
-  <% flash.each do |type, message| %>
-  <div class="alert-<%= type %> text-center alert-dismissible" role="alert">
+
+
+
+
+  <div class="alert">
+    <% flash.each do |type, message| %>
+    <div class="alert-<%= type %> text-center alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span></button>
-      <%= sanitize(message) %>
+        <%= sanitize(message) %>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-  <%= yield %>
-  <%= javascript_include_tag 'application' %>
-</body>
-</html>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+  </body>
+  </html>
