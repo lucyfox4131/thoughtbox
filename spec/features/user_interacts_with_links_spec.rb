@@ -18,6 +18,13 @@ RSpec.feature "User views and interacts with links", :js => true do
     end
 
     first_letter = links.first.title.first
-    # TODO: Add more stuff here
+
+    find("input[name='search[filter]']").send_keys(first_letter)
+
+    within(".table") do
+      expect(page).to have_content(links.first.title)
+      expect(page).to_not have_content(links.second.title)
+      expect(page).to_not have_content(links.last.title)
+    end
   end
 end
