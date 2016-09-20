@@ -11,8 +11,8 @@ describe "Links Controller" do
 
     expect(response).to be_success
     json = JSON.parse(response.body)
-    expect(json.last["title"]).to eq(link2.title)
-    expect(json.last["url"]).to eq(link2.url)
+    expect(json.first["title"]).to eq(link2.title)
+    expect(json.first["url"]).to eq(link2.url)
   end
 
   it "only gets links for current user" do

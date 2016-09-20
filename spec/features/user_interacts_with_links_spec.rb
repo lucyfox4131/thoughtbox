@@ -18,6 +18,6 @@ RSpec.feature "User views and interacts with links", :js => true do
     end
 
     first_letter = links.first.title.first
-    # Add more sad paths here 
+    # TODO: Add more stuff here
   end
 end
