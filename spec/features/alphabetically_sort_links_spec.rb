@@ -11,11 +11,6 @@ RSpec.feature "User sorts" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit links_path
 
-    rows = page.all('.link-row').collect(&:text)
-
-    expect(rows.first).to include("CTitle")
-    expect(rows.last).to include("ATitle")
-
     click_on "Sort Alphabetically"
 
     rows = page.all('.link-row').collect(&:text)
