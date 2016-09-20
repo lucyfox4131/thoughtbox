@@ -7,7 +7,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
-    link = Link.new(user: current_user, url: link_params["url"], title: link_params["title"])
+    link = current_user.links.new(link_params)
     if link.save
       respond_with(link, status: 201, location: api_v1_links_path)
     else

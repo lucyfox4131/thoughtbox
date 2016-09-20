@@ -17,14 +17,16 @@
       <%= button_to "Log In Or Sign Up", new_user_path, method: :get %>
     <% end %>
   </nav>
-
+  
+<div class="alert">
   <% flash.each do |type, message| %>
-    <div class="alert alert-<%= type %> text-center alert-dismissible" role="alert">
+  <div class="alert-<%= type %> text-center alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span></button>
       <%= sanitize(message) %>
     </div>
   <% end %>
+</div>
 
   <%= yield %>
   <%= javascript_include_tag 'application' %>
