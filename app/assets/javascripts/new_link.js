@@ -9,9 +9,16 @@ function newLink(){
       dataType: "JSON",
       data: {link: {title: title, url: url} },
       success: addNewLink,
+      error: errorMessage,
     });
 
     $("#title").val("");
     $("#url").val("");
   });
+}
+
+
+function errorMessage(message){
+  $(".alert").append("<div class='alert-warning text-center alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'></span></button>Please enter a valid URL</div>");
+  setTimeout(function(){$(".alert").html("");} , 3000);
 }
