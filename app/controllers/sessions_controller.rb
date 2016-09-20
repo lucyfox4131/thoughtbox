@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to links_path
     else
-      #write a test for sad path here
+      flash.now[:error] = "Invalid login. Please try again."
+      render :new
     end
   end
 
