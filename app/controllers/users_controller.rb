@@ -7,9 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:success] = "Welcome!"
       redirect_to links_path
     else
-      flash.now[:error] = @user.errors.full_messages.join(", ")
+      flash.now[:warning] = @user.errors.full_messages.join(", ")
       render :new
     end
   end
